@@ -29,3 +29,77 @@ filtros.push(new item("OCB slim", 10, 110));
 filtros.push(new item("Stamp gummed", 11, 130));
 filtros.push(new item("Stamp slim", 12, 110));
 
+
+let mi_tabla = document.createElement("table");
+mi_tabla.setAttribute("class", "table table-warning");
+let mi_tabla_body = document.createElement("tbody");
+
+for (const producto of tabacos) {
+    let mi_fila = document.createElement("tr");
+    let mi_celda = document.createElement("td");
+    mi_celda.innerText = producto.id;
+    mi_fila.appendChild(mi_celda);
+    let mi_celda2 = document.createElement("td");
+    mi_celda2.innerText = producto.nombre;
+    mi_fila.appendChild(mi_celda2);
+    let mi_celda3 = document.createElement("td");
+    mi_celda3.innerHTML = `<b>$ ${producto.precio}</b>`;
+    mi_fila.appendChild(mi_celda3);
+    mi_tabla_body.appendChild(mi_fila);
+}
+
+mi_tabla.appendChild(mi_tabla_body);
+document.getElementById("tabacos").appendChild(mi_tabla);
+
+
+let mi_tablaCedas = document.createElement("table");
+mi_tablaCedas.setAttribute("class", "table table-warning");
+let mi_tablaCedas_body = document.createElement("tbody");
+
+for (const producto of cedas) {
+    let mi_fila = document.createElement("tr");
+    let mi_celda = document.createElement("td");
+    mi_celda.innerText = producto.id;
+    mi_fila.appendChild(mi_celda);
+    let mi_celda2 = document.createElement("td");
+    mi_celda2.innerText = producto.nombre;
+    mi_fila.appendChild(mi_celda2);
+    let mi_celda3 = document.createElement("td");
+    mi_celda3.innerHTML = `<b>$ ${producto.precio}</b>`;
+    mi_fila.appendChild(mi_celda3);
+    mi_tablaCedas_body.appendChild(mi_fila);
+}
+
+mi_tablaCedas.appendChild(mi_tablaCedas_body);
+document.getElementById("cedas").appendChild(mi_tablaCedas);
+
+
+let mi_tablaFiltros = document.createElement("table");
+mi_tablaFiltros.setAttribute("class", "table table-warning");
+let mi_tablaFiltros_body = document.createElement("tbody");
+
+for (const producto of filtros) {
+    let mi_fila = document.createElement("tr");
+    let mi_celda = document.createElement("td");
+    mi_celda.innerText = producto.id;
+    mi_fila.appendChild(mi_celda);
+    let mi_celda2 = document.createElement("td");
+    mi_celda2.innerText = producto.nombre;
+    mi_fila.appendChild(mi_celda2);
+    let mi_celda3 = document.createElement("td");
+    mi_celda3.innerHTML = `<b>$ ${producto.precio}</b>`;
+    mi_fila.appendChild(mi_celda3);
+    mi_tablaFiltros_body.appendChild(mi_fila);
+}
+
+mi_tablaFiltros.appendChild(mi_tablaFiltros_body);
+document.getElementById("filtros").appendChild(mi_tablaFiltros)
+
+
+
+
+const listaCarrito = [];
+
+function agregarItem(){
+
+}
