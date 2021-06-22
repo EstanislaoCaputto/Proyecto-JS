@@ -37,54 +37,111 @@ filtros.push(new item("Stamp slim", 12, 110, src="img/filtros-stamps-slim.jpg"))
 
 for(t of tabacos){
     $("#tabacos").append(`
-    <div class= "container">
+    
         <div class="row align-items-center">
-            <div class="col">
+            <div class="col m-2">
                 <div class="card" style="width: 18rem;">
                     <img src="${t.imagen}" class="card-img-top" alt="${t.nombre}">
                     <div class="card-body">
                     <h5 class="card-title">${t.nombre}</h5>
                     <p class="card-text">${t.precio}</p>
-                    <a href="#" class="btn btn-success">Comprar</a>
+                    <button class="btn btn-success" onclick="agregarAlCarro(t)" type="true">Comprar</button>
                 </div>
             </div>
         </div>
-    </div>`);
+    `);
+    
+    
 }
 for(f of filtros){
     $("#filtros").append(`
-    <div class= "container">
+    
         <div class="row align-items-center">
-            <div class="col">
+            <div class="col m-2">
                 <div class="card" style="width: 18rem;">
                     <img src="${f.imagen}" class="card-img-top" alt="${f.nombre}">
                     <div class="card-body">
                     <h5 class="card-title">${f.nombre}</h5>
                     <p class="card-text">${f.precio}</p>
-                    <a href="#" class="btn btn-success">Comprar</a>
+                    <button class="btn btn-success" onclick="agregarAlCarro(f)"">Comprar</button>
                 </div>
             </div>
         </div>
-    </div>
+    
     `);
+    
+    
 }
 
 for(c of cedas){
     $("#cedas").append(`
-    <div class= "container">
+    
         <div class="row align-items-center">
-            <div class="col">
+            <div class="col m-2">
                 <div class="card" style="width: 18rem;">
                     <img src="${c.imagen}" class="card-img-top" alt="${c.nombre}">
                     <div class="card-body">
                     <h5 class="card-title">${c.nombre}</h5>
                     <p class="card-text">${c.precio}</p>
-                    <a href="#" class="btn btn-success">Comprar</a>
+                    <button class="btn btn-success" onclick="agregarAlCarro(c)"">Comprar</button>
                 </div>
             </div>
         </div>
-    </div>
+    
     `);
+    
+    
 }
 
-//Agrego eventos para añadir al carro
+
+const divCarrito = document.getElementById('carrito')
+let carrito = [];
+
+function cargarCarrito(){
+    divCarrito.innerHTML = ''
+    if(carrito.length > 0){
+        let tabla = document.createElement('table')
+        tabla.classList.add('table')
+        let thead = document.createElement('thead')
+        thead.innerHTML = `
+                  <thead>
+                    <tr>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Precio</th>
+                    </tr>
+                  </thead>
+    `
+        tabla.appendChild(thead)
+
+        let tbody = document.createElement('tbody')
+
+        carrito.forEach( item => {
+            let tr = document.createElement('tr')
+
+            let prodTit = document.createElement('th')
+            prodTit.textContent = item.nombre
+            tr.appendChild(prodTit)
+
+            let prodPrec = document.createElement('th')
+            prodPrec.textContent = '$' + (item.precio)
+            tr.appendChild(prodPrec)
+
+            tbody.appendChild(tr)
+        })
+
+        tabla.appendChild(tbody)
+        divCarrito.appendChild(tabla)
+    }else{
+        let p = document.createElement('p')
+        p.innerText = 'El carrito esta vacio'
+        p.classList.add('lead')
+        p.classList.add('p-2')
+        divCarrito.appendChild(p)
+    }
+}
+
+function agregarAlCarro(item){
+    carrito.push(item)
+    cargarCarrito()
+}
+
