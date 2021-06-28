@@ -18,6 +18,10 @@ body {
   gap: 0px;
 }
 
+#carrin {
+  margin-left: 42%;
+}
+
 .navegacion {
   display: -ms-grid;
   display: grid;

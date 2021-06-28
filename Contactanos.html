@@ -3,21 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Consultanos tus dudas o problemas con los envios">
+    <meta name="keywords" content="Contactar, Consultas, Tomacco">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Todos nuestros productos y precios">
-    <meta name="keywords" content="Precio, Tabacos, Filtros, Cedas">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
+    <title>Tomacco</title>
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="img/logo.jpg" type="image/jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="icon" href="img/logo.jpg" type="image/jpg">
     <link rel="stylesheet" href="scss/estilos.css">
 </head>
 
 <body>
     <header id="cabeza">
         <a href="index.html"><img src="img/logo.jpg" alt="Nuestro Logo" class="logo"></a>
-        <!-- Menu de navegacion -->
         <nav class="navegacion">
             <ul>
                 <li><a href="Contactanos.html">Contactanos</a></li>
@@ -32,52 +31,20 @@
         <h2>Tabacos y más</h2>
     </header>
 
-    <section id="productos" >
-
-      <div class="container px-5 my-5">
-        <div class="row align-items-between">
-          <div class="col" id="tabacos">
-            <div class="p-3 border bg-light">Tabacos</div>
-          </div>
-          <div class="col" id="filtros">
-            <div class="p-3 border bg-light">Filtros</div>
-          </div>
-          <div class="col" id="cedas">
-            <div class="p-3 border bg-light">Cedas</div>
-          </div>
-        </div>
-      </div>
-
-          <!-- Button trigger modal -->
-<button id="carrin" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Mostrar el carro de compras
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Tus compras</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="container" id="carrito"></div>
+    <section id="cuerpo">
         
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Aceptar</button>
-      </div>
-    </div>
-  </div>
-</div>
+        <form id="form1">
+            <label for"username">Mail:</label>
+            <input class="nomb__mail" name="username" type ="email" value="">
+            <label for="name">Nombre:</label>
+            <input class="nomb" name="name" type ="name" value="">
+            <textarea name="consulta" id="consulta" cols="30" rows="10">Haga su consulta!!</textarea>
+            <button id="btn1" class="btn btn-success" type="button" onclick="getFormData('form1');">Enviar</button>
+         </form>
+
+        <img class="krusty" src="img/krusty.jpg" alt="krusty">
 
     </section>
-
-  
-
-    <!-- pie de pagina -->
     <section id="pie"> 
         <div class= "boton-redes">
             <a href="https://www.facebook.com/Tomaco-Tabacos-y-mas-100153065129521/">facebook
@@ -110,16 +77,10 @@
             <footer class="derechos">Creado por Estanislao para coderhouse</footer>
         </div>
     </section>
-    
-    <!-- js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
-        crossorigin="anonymous">
-    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="js/productos.js"></script>
-    
-    
+    <script src="js/formulario.js"></script>
 </body>
 
 </html>
