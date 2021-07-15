@@ -4,15 +4,19 @@ const cedas = [];
 const filtros = [];
 
 class item {
-    constructor (nombre, id, precio, src) {
+    constructor (nombre, id, precio, src, cantidad) {
         this.nombre = nombre;
         this.id = parseInt(id);
         this.precio = parseInt(precio);
-        this.imagen = src
+        this.imagen = src,
+        this.cantidad = 1
         
     }
     sumarIva() {
         this.precio = this.precio * 1.21;
+    }
+    sumarCantidad(){
+        this.cantidad = this.cantidad + 1
     }
 
 }
@@ -104,12 +108,13 @@ function cargarCarrito(){
         tabla.classList.add('table')
         let thead = document.createElement('thead')
         thead.innerHTML = `
-                  <thead>
-                    <tr>
-                      <th scope="col">Producto</th>
-                      <th scope="col">Precio</th>
-                    </tr>
-                  </thead>
+        <thead>
+        <tr>
+          <th scope="col">Producto</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad</th>
+        </tr>
+      </thead>
     `
         tabla.appendChild(thead)
 
@@ -126,6 +131,10 @@ function cargarCarrito(){
             prodPrec.textContent = '$' + (item.precio)
             tr.appendChild(prodPrec)
 
+            let prodCantidad = document.createElement('th')
+            prodCantidad.textContent = item.cantidad
+            tr.appendChild(prodCantidad)
+
             tbody.appendChild(tr)
         })
 
@@ -141,7 +150,19 @@ function cargarCarrito(){
 }
 
 function agregarAlCarro(item){
-    carrito.push(item)
-    cargarCarrito()
+    swal("Cargado al carro",{
+        icon: "success",
+        button: false
+    })
+    if(carrito.includes(item)){
+        item.sumarCantidad();
+        
+        
+    }else{
+
+        carrito.push(item)
+        cargarCarrito()
+    }
+    
 }
 

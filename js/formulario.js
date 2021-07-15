@@ -5,7 +5,7 @@ function getFormData(formId){
     for(let i=0; i<form1Inputs.length; i++){
           formValues[form1Inputs[i].name]=form1Inputs[i].value;
     }
-    // console.log(formValues);
+    console.log(formValues);
 }
 
 //Envio la info a la API
